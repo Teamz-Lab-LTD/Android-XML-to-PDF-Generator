@@ -156,6 +156,7 @@ Real device captures from the sample apps. The hero illustration is generated ar
 
 <p>
   <img src="docs/images/android-studio.png" alt="Teamz Lab Android sample with XML and Compose export options on Pixel 8a" width="30%" />
+  <img src="docs/images/compose-pixel.png" alt="Jetpack Compose PDF export verified on Pixel 8a with the minified release app" width="30%" />
   <img src="docs/images/swiftui-iphone.png" alt="SwiftUI invoice generated and previewed on a real iPhone" width="30%" />
 </p>
 

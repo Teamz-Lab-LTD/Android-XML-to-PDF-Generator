@@ -128,8 +128,18 @@ public class PdfDeviceTest {
             device.setOrientationLeft();
             device.waitForIdle();
             device.pressBack();
-            assertTrue("Cancellation was not delivered after rotation", device.wait(androidx.test.uiautomator.Until.hasObject(
-                    androidx.test.uiautomator.By.text("Save cancelled. You can try again.")), 10000));
+            // A rotated document picker may focus the filename and show the IME.
+            // The first Back dismisses that keyboard; a second exits the picker.
+            if (device.wait(androidx.test.uiautomator.Until.hasObject(
+                    androidx.test.uiautomator.By.pkg("com.emon.XMLtoPDF")), 1500) == false) {
+                device.pressBack();
+            }
+            assertTrue("Host did not return from the picker", device.wait(androidx.test.uiautomator.Until.hasObject(
+                    androidx.test.uiautomator.By.pkg("com.emon.XMLtoPDF")), 10000));
+            // The status is below the fold in landscape. Assert its bound value,
+            // rather than requiring UIAutomator to find off-screen text.
+            scenario.onActivity(a -> assertEquals("Save cancelled. You can try again.",
+                    ((TextView) a.findViewById(R.id.status)).getText().toString()));
             assertTrue("The host Activity must actually recreate", creations.get() >= 2);
         } finally {
             device.setOrientationNatural(); device.unfreezeRotation();

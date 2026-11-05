@@ -4,7 +4,7 @@ Local checks on 2026-11-05. This is evidence for the tested revision and fixture
 
 | Target | Evidence |
 |---|---|
-| Android XML/Views | JVM contract tests, debug/release builds and lint pass. Pixel 8a / Android 16 verified A4/A5 dimensions, multipage output, validation and View-bound restoration. Final lifecycle test run is being verified in this PR. |
+| Android XML/Views | JVM contract tests, debug/release builds and lint pass. Pixel 8a / Android 16 verified A4/A5 dimensions, multipage output, validation and View-bound restoration. All 13 instrumentation tests pass on Pixel 8a, including shared-picker cancellation after actual Activity recreation. |
 | Jetpack Compose / Android | Pixel 8a export opened with PdfRenderer; checked page dimensions and nonblank pixels. Raster output. |
 | Flutter / Android | Physical Pixel integration test passed: widget capture, multipage text report, preview. |
 | Flutter / iOS | Physical iPhone 13 mini integration test passed for the same flows. |
@@ -26,7 +26,7 @@ Android needs JDK 17 and Android SDK 36:
   :compose-to-pdf:publishReleasePublicationToMavenLocal
 ```
 
-Keep a physical test device unlocked. Instrumentation requires the app and system document picker to be visible. The release sample is minified with R8; release UI smoke coverage is recorded separately from debug instrumentation.
+Keep a physical test device unlocked. Instrumentation requires the app and system document picker to be visible. The release sample is minified with R8. `python3 scripts/release_smoke.py` independently verified XML invoice export, PdfRenderer preview, multipage report and Compose export on Pixel 8a. It uses the ordinary release APK with no test-only keep rules. Set `ANDROID_SERIAL` when multiple devices are attached.
 
 Flutter was checked with Flutter 3.38.5 / Dart 3.10.4:
 
