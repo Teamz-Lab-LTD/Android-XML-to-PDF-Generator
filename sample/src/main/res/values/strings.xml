@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">Android XML to Pdf</string>
+    <string name="app_name">Layout to PDF</string>
+    <string name="brand">TEAMZ LAB · ANDROID</string>
+    <string name="headline">Layouts in.
+Documents out.</string>
+    <string name="subtitle">Export XML layouts, Android Views and Compose content as PDF.</string>
+    <string name="section_title">Try an export</string>
+    <string name="invoice">XML invoice</string>
+    <string name="report">Multi-page report</string>
+    <string name="compose">Compose studio →</string>
+    <string name="ready">Choose a sample. No storage permission needed.</string>
+    <string name="generating">Generating your PDF…</string>
+    <string name="export_success">PDF ready · %1$d page(s)</string>
+    <string name="export_failed">Export failed: %1$s</string>
+    <string name="save_cancelled">Save cancelled. You can try again.</string>
+    <string name="preview_failed">PDF saved. Preview unavailable for this provider.</string>
+    <string name="page_number">PAGE %1$d / %2$d</string>
+    <string name="preview_desc">Preview of the generated PDF page</string>
+    <string name="next_page">Next page</string>
+    <string name="save_pdf">Save a copy</string>
+    <string name="share_pdf">Share PDF</string>
+    <string name="generate_first">Generate a document first.</string>
+    <string name="footer">Built for real exports.
+A4 / A5 · Scoped storage · Local generation</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

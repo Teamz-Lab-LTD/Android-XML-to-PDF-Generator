@@ -12,3 +12,17 @@
 /captures
 .externalNativeBuild
 .cxx
+
+**/build/
+.idea/
+artifacts/
+
+.build/
+.swiftpm/
+**/.dart_tool/
+**/.flutter-plugins-dependencies
+**/pubspec.lock
+**/ephemeral/
+
+**/xcuserdata/
+**/DerivedData/

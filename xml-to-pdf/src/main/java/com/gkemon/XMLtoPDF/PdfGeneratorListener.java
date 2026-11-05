@@ -16,6 +16,8 @@ interface PdfGeneratorContract {
 }
 
 public abstract class PdfGeneratorListener implements PdfGeneratorContract {
+    @Override public void onStartPDFGeneration() {}
+    @Override public void onFinishPDFGeneration() {}
     @Override
     public void showLog(String log) {
 

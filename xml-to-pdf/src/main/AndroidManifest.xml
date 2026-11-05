@@ -1,19 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <application android:requestLegacyExternalStorage="true">
-        <provider
-            android:name=".model.XmlToPDFFileProvider"
+    <application>
+        <provider android:name=".model.XmlToPDFFileProvider"
             android:authorities="${applicationId}.xmlToPdf.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+            android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xml_to_pdf_provider_paths" />
         </provider>
     </application>
-
-
 </manifest>

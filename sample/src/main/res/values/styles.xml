@@ -1,11 +1,19 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#173D32</item>
+        <item name="colorPrimaryDark">#F4F2EC</item>
+        <item name="colorAccent">#27745A</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:statusBarColor">#F4F2EC</item>
+        <item name="android:navigationBarColor">#F4F2EC</item>
+        <item name="android:windowBackground">#F4F2EC</item>
     </style>
-
+    <style name="ExportButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="AppTheme" parent="AppThemeBase"/>
 </resources>

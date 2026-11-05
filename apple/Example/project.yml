@@ -1,0 +1,43 @@
+name: LayoutPDFDemo
+options:
+  bundleIdPrefix: com.teamzlab
+packages:
+  LayoutToPDF:
+    path: ../..
+targets:
+  LayoutPDFDemo:
+    type: application
+    platform: iOS
+    deploymentTarget: '16.0'
+    sources: [Sources]
+    dependencies:
+      - package: LayoutToPDF
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.teamzlab.layoutpdf.demo
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Layout to PDF
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_VERSION: '5.9'
+        TARGETED_DEVICE_FAMILY: '1,2'
+  LayoutPDFDemoUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: '16.0'
+    sources: [UITests]
+    dependencies:
+      - target: LayoutPDFDemo
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        TEST_TARGET_NAME: LayoutPDFDemo
+schemes:
+  LayoutPDFDemo:
+    build:
+      targets:
+        LayoutPDFDemo: all
+    test:
+      targets: [LayoutPDFDemoUITests]

@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F7DE7D2C52D5D2731175F71 /* LayoutToPDF in Frameworks */ = {isa = PBXBuildFile; productRef = 1296CBD871A8472DF0DF9B57 /* LayoutToPDF */; };
+		94554788A298BB2EC9FDFE99 /* ExportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347D1A592E6A8E38D3E4CC9 /* ExportUITests.swift */; };
+		D7F7B31B3E5BE2275C528CB8 /* LayoutPDFDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC079D5A83D22719D96177F /* LayoutPDFDemoApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B64112D5189768A2C6FCDC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECFFFACA6036986FB4EC8B3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1BF72303EEA7332399E9AD7;
+			remoteInfo = LayoutPDFDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E21936BA2B1F37F11763A39 /* LayoutPDFDemoUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = LayoutPDFDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADC079D5A83D22719D96177F /* LayoutPDFDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutPDFDemoApp.swift; sourceTree = "<group>"; };
+		B8A0B4A01CC883B041E79496 /* LayoutPDFDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LayoutPDFDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2EFA724CF488F9ADFE2AAAF /* Android-XML-to-PDF-Generator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Android-XML-to-PDF-Generator"; path = ../..; sourceTree = SOURCE_ROOT; };
+		F347D1A592E6A8E38D3E4CC9 /* ExportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportUITests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CD7EEAB520093046CD411D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F7DE7D2C52D5D2731175F71 /* LayoutToPDF in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13FB2F7015C05B18071CE614 = {
+			isa = PBXGroup;
+			children = (
+				85DEA181AD712B7325EA2DB9 /* Packages */,
+				3EB463375A5C750796BA43F3 /* Sources */,
+				EB55C752D04B634BFD0E4969 /* UITests */,
+				3533E1F5525EAA04CA6B4AAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3533E1F5525EAA04CA6B4AAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8A0B4A01CC883B041E79496 /* LayoutPDFDemo.app */,
+				5E21936BA2B1F37F11763A39 /* LayoutPDFDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EB463375A5C750796BA43F3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				ADC079D5A83D22719D96177F /* LayoutPDFDemoApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		85DEA181AD712B7325EA2DB9 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				E2EFA724CF488F9ADFE2AAAF /* Android-XML-to-PDF-Generator */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		EB55C752D04B634BFD0E4969 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				F347D1A592E6A8E38D3E4CC9 /* ExportUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7FE4A3EFF592701901CB1370 /* LayoutPDFDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1D50AA8A8FA6EA0DBD70EFB /* Build configuration list for PBXNativeTarget "LayoutPDFDemoUITests" */;
+			buildPhases = (
+				014A1FB64A3ED7F2BE30859E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2305BF7AE20A15092198579 /* PBXTargetDependency */,
+			);
+			name = LayoutPDFDemoUITests;
+			packageProductDependencies = (
+			);
+			productName = LayoutPDFDemoUITests;
+			productReference = 5E21936BA2B1F37F11763A39 /* LayoutPDFDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A1BF72303EEA7332399E9AD7 /* LayoutPDFDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5232DC9CE9450B269114FFE6 /* Build configuration list for PBXNativeTarget "LayoutPDFDemo" */;
+			buildPhases = (
+				8E893EB73AF8D8753F35BF6A /* Sources */,
+				4CD7EEAB520093046CD411D9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LayoutPDFDemo;
+			packageProductDependencies = (
+				1296CBD871A8472DF0DF9B57 /* LayoutToPDF */,
+			);
+			productName = LayoutPDFDemo;
+			productReference = B8A0B4A01CC883B041E79496 /* LayoutPDFDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECFFFACA6036986FB4EC8B3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					7FE4A3EFF592701901CB1370 = {
+						ProvisioningStyle = Automatic;
+						TestTargetID = A1BF72303EEA7332399E9AD7;
+					};
+					A1BF72303EEA7332399E9AD7 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4D26F35D169FCFE609D6DE9B /* Build configuration list for PBXProject "LayoutPDFDemo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 13FB2F7015C05B18071CE614;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9A82C132FBDBD662FA332A4C /* XCLocalSwiftPackageReference "../.." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3533E1F5525EAA04CA6B4AAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1BF72303EEA7332399E9AD7 /* LayoutPDFDemo */,
+				7FE4A3EFF592701901CB1370 /* LayoutPDFDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		014A1FB64A3ED7F2BE30859E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94554788A298BB2EC9FDFE99 /* ExportUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E893EB73AF8D8753F35BF6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7F7B31B3E5BE2275C528CB8 /* LayoutPDFDemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2305BF7AE20A15092198579 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1BF72303EEA7332399E9AD7 /* LayoutPDFDemo */;
+			targetProxy = 8B64112D5189768A2C6FCDC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		612570C339AB95CA79AE2D06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Layout to PDF";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamzlab.layoutpdf.demo;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ADFA1E7743E9FA93F8C04CD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamzlab.LayoutPDFDemoUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LayoutPDFDemo;
+			};
+			name = Debug;
+		};
+		B26A937D06A3D26120A72A1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamzlab.LayoutPDFDemoUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LayoutPDFDemo;
+			};
+			name = Release;
+		};
+		B9AA82BD5C0E211EEBEF2442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D739BB46F6C8B2BFEBA2B331 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F2A38D3E2A5F2E554DBBF73F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Layout to PDF";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamzlab.layoutpdf.demo;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D26F35D169FCFE609D6DE9B /* Build configuration list for PBXProject "LayoutPDFDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9AA82BD5C0E211EEBEF2442 /* Debug */,
+				D739BB46F6C8B2BFEBA2B331 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5232DC9CE9450B269114FFE6 /* Build configuration list for PBXNativeTarget "LayoutPDFDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A38D3E2A5F2E554DBBF73F /* Debug */,
+				612570C339AB95CA79AE2D06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B1D50AA8A8FA6EA0DBD70EFB /* Build configuration list for PBXNativeTarget "LayoutPDFDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADFA1E7743E9FA93F8C04CD4 /* Debug */,
+				B26A937D06A3D26120A72A1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		9A82C132FBDBD662FA332A4C /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1296CBD871A8472DF0DF9B57 /* LayoutToPDF */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LayoutToPDF;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = ECFFFACA6036986FB4EC8B3E /* Project object */;
+}

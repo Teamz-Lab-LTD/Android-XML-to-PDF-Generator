@@ -2,6 +2,7 @@ package com.gkemon.XMLtoPDF.model;
 
 import android.graphics.pdf.PdfDocument;
 import android.text.TextUtils;
+import android.net.Uri;
 
 import java.io.File;
 
@@ -9,6 +10,8 @@ import java.io.File;
  * Created by Gk Emon on 8/30/2020.
  */
 public class SuccessResponse {
+    private Uri uri;
+    private int pageCount;
     PdfDocument pdfDocument;
     File file;
     String path;
@@ -25,6 +28,18 @@ public class SuccessResponse {
         this.widthInPostScripUnit=widthInPostScripUnit;
     }
 
+    public SuccessResponse(PdfDocument document, File file, Uri uri, int width, int height, int pageCount) {
+        this(document, file, width, height);
+        this.uri = uri;
+        this.pageCount = pageCount;
+    }
+
+    /** Use ContentResolver to read this URI. Shared documents may not have a File path. */
+    public Uri getUri() { return uri; }
+    public int getPageCount() { return pageCount; }
+
+    /** @deprecated The generator closes documents after writing. Use getUri() or getFile(). */
+    @Deprecated
     public PdfDocument getPdfDocument() {
         return pdfDocument;
     }
