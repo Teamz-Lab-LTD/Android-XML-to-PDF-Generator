@@ -9,7 +9,7 @@ Local checks on 2026-11-05. This is evidence for the tested revision and fixture
 | Flutter / Android | Physical Pixel integration test passed: widget capture, multipage text report, preview. |
 | Flutter / iOS | Physical iPhone 13 mini integration test passed for the same flows. |
 | Flutter / macOS | Native desktop integration test passed for the same flows. |
-| Flutter / web | Release web build passed. Browser print dialogs and browser runtime export have not yet been verified. |
+| Flutter / web | Release web build passed. Chrome manually verified widget capture (1 page), text report (3 pages), and rendered PDF preview. OS print-dialog output was not tested. |
 | Flutter / Windows, Linux | Portable implementation and example hosts included; not runtime-tested here. |
 | SwiftUI / macOS | Four PDFKit tests pass: page bounds, selectable fixture text, pagination including last-row preservation, landscape and invalid-option/page-limit handling. |
 | SwiftUI / iOS | iPhone 13 mini UI test passed: invoice PDF preview and long report generation. |
