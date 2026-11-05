@@ -146,6 +146,32 @@ public class PdfDeviceTest {
             androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry.getInstance().removeLifecycleCallback(callback);
         }
     }
+    @Test public void sharedPickerWritesReadablePdf() throws Exception {
+        androidx.test.uiautomator.UiDevice device = androidx.test.uiautomator.UiDevice.getInstance(
+                androidx.test.platform.app.InstrumentationRegistry.getInstrumentation());
+        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+            scenario.onActivity(a -> a.generate(true));
+            androidx.test.uiautomator.UiObject2 name = device.wait(androidx.test.uiautomator.Until.findObject(
+                    androidx.test.uiautomator.By.clazz("android.widget.EditText")), 10000);
+            assertNotNull("Filename field not found", name);
+            name.setText("layout-to-pdf-test-" + System.currentTimeMillis() + ".pdf");
+            androidx.test.uiautomator.UiObject2 save = device.wait(androidx.test.uiautomator.Until.findObject(
+                    androidx.test.uiautomator.By.text(java.util.regex.Pattern.compile("(?i)save"))), 10000);
+            assertNotNull("Save button not found", save);
+            save.click();
+            assertTrue("Host did not return from save", device.wait(androidx.test.uiautomator.Until.hasObject(
+                    androidx.test.uiautomator.By.pkg("com.emon.XMLtoPDF")), 10000));
+            java.util.concurrent.atomic.AtomicBoolean previewed = new java.util.concurrent.atomic.AtomicBoolean();
+            for (int i = 0; i < 40 && !previewed.get(); i++) {
+                scenario.onActivity(a -> previewed.set("PAGE 1 / 1".equals(
+                        ((TextView) a.findViewById(R.id.page_label)).getText().toString())));
+                if (!previewed.get()) Thread.sleep(250);
+            }
+            assertTrue("Saved URI must open successfully with PdfRenderer", previewed.get());
+            scenario.onActivity(a -> assertEquals("PDF ready · 1 page(s)",
+                    ((TextView) a.findViewById(R.id.status)).getText().toString()));
+        }
+    }
     private void assertPdf(SuccessResponse result, int count, int width, int height) throws Exception {
         assertNotNull(result); assertEquals(count, result.getPageCount());
         try (ParcelFileDescriptor fd = ParcelFileDescriptor.open(result.getFile(), ParcelFileDescriptor.MODE_READ_ONLY);

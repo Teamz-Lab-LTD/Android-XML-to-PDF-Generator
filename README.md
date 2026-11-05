@@ -155,9 +155,10 @@ See the [Apple quickstart](apple/README.md) and [iPhone sample](apple/Example). 
 Real device captures from the sample apps. The hero illustration is generated artwork; it is not a screenshot.
 
 <p>
-  <img src="docs/images/android-studio.png" alt="Teamz Lab Android sample with XML and Compose export options on Pixel 8a" width="30%" />
-  <img src="docs/images/compose-pixel.png" alt="Jetpack Compose PDF export verified on Pixel 8a with the minified release app" width="30%" />
-  <img src="docs/images/swiftui-iphone.png" alt="SwiftUI invoice generated and previewed on a real iPhone" width="30%" />
+  <img src="docs/images/android-studio.png" alt="Teamz Lab Android sample with XML and Compose export options on Pixel 8a" width="23%" />
+  <img src="docs/images/compose-pixel.png" alt="Jetpack Compose PDF export verified on Pixel 8a with the minified release app" width="23%" />
+  <img src="docs/images/flutter-preview.png" alt="Flutter widget PDF preview running on Pixel 8a" width="23%" />
+  <img src="docs/images/swiftui-iphone.png" alt="SwiftUI invoice generated and previewed on a real iPhone" width="23%" />
 </p>
 
 [Test commands and results](docs/verification.md)

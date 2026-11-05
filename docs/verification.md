@@ -4,7 +4,7 @@ Local checks on 2026-11-05. This is evidence for the tested revision and fixture
 
 | Target | Evidence |
 |---|---|
-| Android XML/Views | JVM contract tests, debug/release builds and lint pass. Pixel 8a / Android 16 verified A4/A5 dimensions, multipage output, validation and View-bound restoration. All 13 instrumentation tests pass on Pixel 8a, including shared-picker cancellation after actual Activity recreation. |
+| Android XML/Views | JVM contract tests, debug/release builds and lint pass. Pixel 8a / Android 16 verified A4/A5 dimensions, multipage output, validation and View-bound restoration. All 14 instrumentation tests pass on Pixel 8a, including shared-picker cancellation after actual Activity recreation and a system-picker save reopened through PdfRenderer. |
 | Jetpack Compose / Android | Pixel 8a export opened with PdfRenderer; checked page dimensions and nonblank pixels. Raster output. |
 | Flutter / Android | Physical Pixel integration test passed: widget capture, multipage text report, preview. |
 | Flutter / iOS | Physical iPhone 13 mini integration test passed for the same flows. |

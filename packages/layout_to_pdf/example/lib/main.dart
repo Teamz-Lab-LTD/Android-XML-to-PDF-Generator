@@ -9,6 +9,7 @@ class ExportApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'Layout to PDF',
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF173D32)),
       scaffoldBackgroundColor: const Color(0xFFF4F2EC),
