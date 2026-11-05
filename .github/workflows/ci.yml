@@ -53,12 +53,17 @@ jobs:
           arch: x86_64
           target: google_apis
           disable-animations: true
-          script: ./gradlew :sample:connectedDebugAndroidTest
+          profile: pixel_2
+          script: |
+            ./gradlew :sample:connectedDebugAndroidTest :sample:assembleRelease
+            python3 scripts/release_smoke.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: android-device-${{ matrix.api }}
-          path: sample/build/reports/androidTests/
+          path: |
+            sample/build/reports/androidTests/
+            artifacts/release-smoke/
   flutter:
     runs-on: ubuntu-latest
     defaults:
