@@ -1,121 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/_300sdp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center|top">
-
-    <LinearLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context="com.emon.exampleXMLtoPDF.MainActivity">
-
-        <TextView
-            android:id="@+id/tv_print_area"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_gravity="top"
-            android:layout_margin="5dp"
-            android:background="@android:color/holo_purple"
-            android:gravity="top|center"
-            android:text="Hi, Im am a dummy text"
-            android:textAlignment="gravity"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/bt_print"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print The Top Demo View \n(Pdf will be save in shared storage and after generation will open by pdf reader app)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/bt_print_multi_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print The Top Demo View In Multi Page\n(PDF will saved under custom folder path ''MyFolder/MyDemoTextMultiPage/'' and will open by pdf reader app with after generation)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/bt_print_multi_page_dynamic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print The Top Demo View In Multi Page With Dynamic Text (After generation it will be shown in sharing popup to share with other app)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-        <Button
-            android:id="@+id/bt_horizontal_scroll_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print A Horizontal Scroll View\n(PDF will saved under custom folder path ''MyFolder/MyDemoList/'' and do nothing after PDF creation)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-        <Button
-            android:id="@+id/bt_demo_barcode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print A Demo Barcode  \n(After generation, PDF will open by pdf reader app)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/bt_print_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print A Demo List \n( (After generation, PDF will open by pdf reader app)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/bt_invoice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print A Demo Invoice \n (After generation, PDF will open by pdf reader app)"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            tools:ignore="HardcodedText" />
-
-
-
-
-        <Button
-            android:id="@+id/bt_print_landscape"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:backgroundTint="@android:color/holo_red_light"
-            android:text="Print A Landscape PDF"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:visibility="gone"
-            tools:ignore="HardcodedText"
-            tools:visibility="visible" />
-
-    </LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/screen_root" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="#F4F2EC">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/brand" android:textColor="#27745A" android:textSize="12sp" android:letterSpacing="0.13" android:textStyle="bold" android:layout_marginTop="12dp"/>
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/headline" android:textColor="#173D32" android:textSize="38sp" android:fontFamily="sans-serif-black" android:lineSpacingExtra="-2dp" android:layout_marginTop="18dp"/>
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/subtitle" android:textColor="#56645D" android:textSize="16sp" android:lineSpacingExtra="3dp" android:layout_marginTop="12dp"/>
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp" android:background="@drawable/card_surface" android:layout_marginTop="24dp">
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/section_title" android:textColor="#173D32" android:textSize="20sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+   <Button android:id="@+id/export_invoice" style="@style/ExportButton" android:text="@string/invoice"/>
+   <Button android:id="@+id/export_report" style="@style/ExportButton" android:text="@string/report"/>
+   <Button android:id="@+id/open_compose" style="@style/ExportButton" android:text="@string/compose"/>
+   <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/ready" android:textColor="#56645D" android:textSize="13sp" android:layout_marginTop="12dp" android:accessibilityLiveRegion="polite"/>
+  </LinearLayout>
+  <LinearLayout android:id="@+id/preview_card" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_surface" android:padding="16dp" android:layout_marginTop="20dp" android:visibility="gone">
+   <TextView android:id="@+id/page_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#27745A" android:textSize="12sp" android:textStyle="bold"/>
+   <ImageView android:id="@+id/pdf_preview" android:layout_width="match_parent" android:layout_height="380dp" android:scaleType="fitCenter" android:contentDescription="@string/preview_desc"/>
+   <Button android:id="@+id/next_page" style="@style/ExportButton" android:text="@string/next_page"/>
+   <Button android:id="@+id/save_pdf" style="@style/ExportButton" android:text="@string/save_pdf"/>
+   <Button android:id="@+id/share_pdf" style="@style/ExportButton" android:text="@string/share_pdf"/>
+  </LinearLayout>
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/footer" android:textColor="#56645D" android:textSize="12sp" android:lineSpacingExtra="4dp" android:layout_marginTop="24dp" android:layout_marginBottom="16dp"/>
+ </LinearLayout>
 </ScrollView>

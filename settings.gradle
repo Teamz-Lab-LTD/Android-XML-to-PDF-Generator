@@ -1,3 +1,9 @@
-include ':sample' ,
-        ':xml-to-pdf'
-rootProject.name='Android XML to Pdf'
+pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories { google(); mavenCentral() }
+}
+rootProject.name = 'Android-XML-to-PDF-Generator'
+include ':sample', ':xml-to-pdf'
+
+include ':compose-to-pdf'

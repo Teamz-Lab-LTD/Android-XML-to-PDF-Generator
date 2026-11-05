@@ -1,306 +1,184 @@
-<!-- ⚠️ This README has been generated from the file(s) "blueprint.md" link - https://github.com/andreasbm/readme ⚠️--><p align="center">
-  <img src="https://github.com/Gkemon/Android-XML-to-PDF-Generator/blob/master/logo.png" alt="Logo" width="150" height="150"  />
-</p>
-<h1 align="center">XML to PDF Generator For Android</h1>
- <p align="center">
-		<a href="https://github.com/Gkemon/XML-to-PDF-generator"><img alt="Maintained" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" height="20"/></a>
-	<a href="https://github.com/Gkemon/XML-to-PDF-generator"><img alt="Maintained" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" height="20"/></a>
-	</p>
-	 <p align="center">
-	<a href="https://android-arsenal.com/details/1/8165"><img alt="Maintained" src="https://img.shields.io/badge/Android%20Arsenal-Android--XML--to--PDF--Generator-green.svg?style=flat" height="20"/></a>
-	<a href="https://jitpack.io/#Gkemon/Android-XML-to-PDF-Generator"><img alt="version - 2.6.8" src="https://jitpack.io/v/Gkemon/Android-XML-to-PDF-Generator.svg"/></a>
-	</p>
-
 <p align="center">
-  <b>Automatically generate PDF file from XML file or Java's View object in Android</b></br>
-  <p align="center"> Make PDF from Android layout resources (e.g - R.layout.myLayout,R.id.viewID) ids or directly views objects <p>
-</p>
- <p align="center">Run the <a href="https://github.com/Gkemon/Android-XML-to-PDF-Generator/tree/master/sample">sample app</a> and see it's or <a href="https://youtu.be/zD9krZedi3M">youtube video</a> below for getting more clearance.</p>
-
-<p align="center">
-<img src="https://github.com/Gkemon/Android-XML-to-PDF-Generator/blob/master/demo-home-screen-ss.png" alt="Demo" height="600" width="300" /> 
+  <img src="docs/images/hero.png" alt="Layout to PDF by Teamz Lab — Compose, XML, Flutter and SwiftUI" width="100%" />
 </p>
 
-* **Simple**: Extremely simple to use. For using <b>Step Builder Design Patten</b> undernath,here IDE greatly helps developers to complete the steps for creating a PDF from XMLs.
-* **Powerful**: Customize almost everything.
-* **Transparent**: It shows logs,success-responses, failure-responses , that's why developer will nofity any event inside the process. 
+# Layout to PDF · Compose, XML, Flutter & SwiftUI
 
-<details>
-<summary>📖 Table of Contents</summary>
-<br />
+**Turn app layouts into documents people can save, share and print.** Built by [Teamz Lab](https://teamzlab.com/?utm_source=github&utm_medium=opensource&utm_campaign=layout_to_pdf).
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
+Generate PDFs from **Android XML layouts and Views**, capture **Jetpack Compose** content, export **Flutter widgets or text reports**, and render **SwiftUI** documents on Apple platforms. Local generation, explicit paper sizes, runnable examples and regression tests. No account, API key or mandatory watermark.
 
-## ➤ Table of Contents
+Previously **Android XML to PDF Generator**. The repository URL and Java package stay the same so existing links keep working.
 
-* [➤ Installation](#-installation)
-* [➤ Getting Started](#-getting-started)
-* [➤ License](#-license)
-</details>
+[![Verify exports](https://github.com/Teamz-Lab-LTD/Android-XML-to-PDF-Generator/actions/workflows/ci.yml/badge.svg)](https://github.com/Teamz-Lab-LTD/Android-XML-to-PDF-Generator/actions/workflows/ci.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-173D32.svg)](LICENSE)
 
+[Quickstarts](#choose-your-platform) · [Examples](#see-the-output) · [Migration](docs/migration.md) · [Verification](docs/verification.md) · [Compare tools](docs/comparison.md) · [AI integration guide](docs/ai-integration.md)
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#installation)
+> **Source-first preview:** the new adapters and Android 3.0 changes are available in this repository. They are not yet advertised as a published Maven Central or pub.dev release. The old `2.6.8` artifact does not contain these features. Use the source/module instructions below and pin a reviewed commit.
 
-## ➤ Installation
+## Choose your platform
 
-**Step 1**. Add the JitPack repository to your root ```build.gradle``` at the end of repositories
-```
-android {
- .
- .
-  
-   /*Need Java version 1.8 as Rx java is used for file write underneath for preventing UI freezing*/
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
- .
- .
-}
- .
- .
-allprojects {
-    repositories {
-        // ...
-        maven { url 'https://jitpack.io' }
-    }
-}
-.
-.
+| Your app | Module | What goes into the PDF |
+|---|---|---|
+| Android XML / Java / Kotlin Views | [`xml-to-pdf`](xml-to-pdf) | Draws Views into Android's PDF Canvas; text/vector preservation depends on the View |
+| Jetpack Compose on Android | [`compose-to-pdf`](compose-to-pdf) | Bitmap of the rendered capture area |
+| Flutter | [`layout_to_pdf`](packages/layout_to_pdf) | Widget capture as pixels, or flowing text reports via `pdf` |
+| SwiftUI on iOS / macOS | [`LayoutToPDF`](apple) | Native ImageRenderer/Core Graphics output; sample text remains selectable |
+
+**Choose capture for visual fidelity to a rendered UI. Choose a document layout for flowing text and reports.** These are different rendering paths with different limits. See the [tested-platform matrix](docs/verification.md).
+
+## What this project handles
+
+- Android app-private saving without legacy storage permissions; optional system document picker for shared storage.
+- A4/A5 paper sizes, landscape, margins and continuous page slicing for Android and SwiftUI.
+- Content-URI results, cancellation handling and Android Activity recreation while saving.
+- Flutter captures with image/page bounds, plus text reports with repeated headers, page numbers and optional bundled fonts.
+- Independent adapters: XML users do not pull in Compose, and Apple/Flutter apps do not depend on Android binaries.
+- Sample apps, output checks, CI and a migration guide for existing integrations.
+
+## Android XML or View to PDF
+
+The Android modules require **minSdk 21**. To build this repository, use **JDK 17** and **Android SDK 36**.
+
+```bash
+git clone https://github.com/Teamz-Lab-LTD/Android-XML-to-PDF-Generator.git
+cd Android-XML-to-PDF-Generator
+./gradlew :sample:assembleDebug :xml-to-pdf:publishReleasePublicationToMavenLocal \
+  :compose-to-pdf:publishReleasePublicationToMavenLocal
 ```
 
-**Step 2**. Add the dependency
+For a local integration, add `mavenLocal()` to your dependency repositories:
+
+```kotlin
+implementation("com.github.Teamz-Lab-LTD:Android-XML-to-PDF-Generator:3.0.0")
+// Optional Compose adapter:
+implementation("com.github.Teamz-Lab-LTD.Android-XML-to-PDF-Generator:compose-to-pdf:3.0.0")
 ```
-dependencies {
-        implementation 'com.github.Gkemon:Android-XML-to-PDF-Generator:2.6.8'
-}
-```	
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#getting-started-quick)
 
-
-
-## ➤ Getting Started
-
-You can generate <b>PDF</b> from many sources.
-* Layout resources (i.e: ```R.layout.myLayout```)
-* View ids (i.e: ```R.id.viewID```)
-* Java view objects (i.e ```View```,```TextView```,```LinearLayout```) because sometimes we need to change the content of the XML and then dealing this java view object is only way to do this.
-
-## ➤ Important Note
-![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png)
-![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png)
-![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png)
-For better output and make the PDF more responsive,please try to set ```android:layout_width``` of the top most view of XML a fixed value in pixel or ```px``` (Recommandation is not use ```dp``` as it depends on device screen) instead of ```wrap_content``` and ```match_parent``` otherwise sizing could be malformed in PDF for different device screen.Suppose if you want to print an A4 sized pdf so you can see my example from [where](https://github.com/Gkemon/Android-XML-to-PDF-Generator/blob/master/sample/src/main/res/layout/demo_a4_sized_page.xml). You just need to make your XML's  width:hight aspected ratio 1:1.14142. Referece is [here](https://www.papersizes.org/sp/a/a4#:~:text=The%20aspect%20ratio%20(width%3Aheight,(1%3A%E2%88%9A2) ).
-![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png)
-![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png)
-![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png)
-
-### From layout resources : 
-( Only static content in XML will be printed by this approach. If you want to change the content of the XML ,suppose there is a
-text view in the XML and you want to populate it with a data then try the [approach](https://github.com/Gkemon/Android-XML-to-PDF-Generator/edit/master/README.md#from-views) ) 
-
+These coordinates refer to the **locally published** modules above. They are not a claim of availability from Maven Central. You can also include the source modules as the sample does.
 
 ```java
- PdfGenerator.getBuilder()
-                        .setContext(context)
-                        .fromLayoutXMLSource()
-                        .fromLayoutXML(R.layout.layout_print,R.layout.layout_print)
-			/* "fromLayoutXML()" takes array of layout resources.
-			 * You can also invoke "fromLayoutXMLList()" method here which takes list of layout resources instead of array. */
-                        .setFileName("Test-PDF")
-			/* It is file name */
-                        .setFolderName("FolderA/FolderB/FolderC")
-			/* It is folder name. If you set the folder name like this pattern (FolderA/FolderB/FolderC), then
-			 * FolderA creates first.Then FolderB inside FolderB and also FolderC inside the FolderB and finally
-			 * the pdf file named "Test-PDF.pdf" will be store inside the FolderB. */
-                        .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.SHARE)
-			/*If you want to save your pdf in shared storage (where other apps can also see your pdf even after the app is uninstall).
-			 * You need to pass an xmt to pdf lifecycle observer by the following method. To get complete overview please see the MainActivity of 'sample' folder */
-			.savePDFSharedStorage(xmlToPDFLifecycleObserver)
-			/* It true then the generated pdf will be shown after generated. */
-                        .build(new PdfGeneratorListener() {
-                            @Override
-                            public void onFailure(FailureResponse failureResponse) {
-                                super.onFailure(failureResponse);
-				/* If pdf is not generated by an error then you will findout the reason behind it
-				 * from this FailureResponse. */
-                            }
-			      @Override
-                            public void onStartPDFGeneration() {
-                                /*When PDF generation begins to start*/
-                            }
-
-                            @Override
-                            public void onFinishPDFGeneration() {
-                                /*When PDF generation is finished*/
-                            }
-
-                            @Override
-                            public void showLog(String log) {
-                                super.showLog(log);
-				/*It shows logs of events inside the pdf generation process*/ 
-                            }
-
-                            @Override
-                            public void onSuccess(SuccessResponse response) {
-                                super.onSuccess(response);
-				/* If PDF is generated successfully then you will find SuccessResponse 
-				 * which holds the PdfDocument,File and path (where generated pdf is stored)*/
-				
-                            }
-                        });
-```
-
-### From view IDs :
-
-```java
-    PdfGenerator.getBuilder()
-                        .setContext(context)
-                        .fromViewIDSource()
-                        .fromViewID(R.layout.hostLayout,activity,R.id.tv_print_area,R.id.tv_print_area)
-			/* "fromViewID()" takes array of view ids and the host layout xml where the view ids are belonging.
-			 * You can also invoke "fromViewIDList()" method here which takes list of view ids instead of array.*/
-                        .setFileName("Test-PDF")
-                        .setFolderName("Test-PDF-folder")
-                        .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN)
-                        .build(new PdfGeneratorListener() {
-                            @Override
-                            public void onFailure(FailureResponse failureResponse) {
-                                super.onFailure(failureResponse);
-                            }
-			    
-			       @Override
-                            public void onStartPDFGeneration() {
-                                /*When PDF generation begins to start*/
-                            }
-
-                            @Override
-                            public void onFinishPDFGeneration() {
-                                /*When PDF generation is finished*/
-                            }
-
-                            @Override
-                            public void showLog(String log) {
-                                super.showLog(log);
-                            }
-
-                            @Override
-                            public void onSuccess(SuccessResponse response) {
-                                super.onSuccess(response);
-                            }
-                        });
-```
-
-### From views:
-( This approach is perfect when you need to change the XML content. You can change the content getting them by ```findViewById``` and change them and finally print them. Other example is [here](https://github.com/Gkemon/Android-XML-to-PDF-Generator/issues/4#issuecomment-712690701) )
-```java 
-
-
-TextView tvText = view.findViewByID(R.id.tv_text_1);
-tvText.setText("My changed content");
-//By the following statements, we are changing the text view inside of our target "view" which is going to be changed.
-//So if we now print the "view" then you will see the changed text in the pdf.
-
 PdfGenerator.getBuilder()
-                        .setContext(MainActivity.this)
-                        .fromViewSource()
-                        .fromView(view)
-                        .setFileName("Test-PDF")
-                        .setFolderName("Test-PDF-folder")
-                        .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN)
-                        .build(new PdfGeneratorListener() {
-                            @Override
-                            public void onFailure(FailureResponse failureResponse) {
-                                super.onFailure(failureResponse);
-                            }
+    .setContext(this) // ComponentActivity, on the main thread
+    .fromLayoutXMLSource()
+    .fromLayoutXML(R.layout.document_invoice)
+    .setPageSize(PdfGenerator.PageSize.A4)
+    .setFileName("invoice")
+    .setPageMargin(24) // PDF points, not dp
+    .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.NONE)
+    .build(new PdfGeneratorListener() {
+        @Override public void onSuccess(SuccessResponse result) {
+            Uri pdf = result.getUri();
+            // Read with ContentResolver; result.getPageCount() reports actual pages.
+        }
+        @Override public void onFailure(FailureResponse error) {
+            // Show a useful error or cancellation state in your UI.
+        }
+    });
+```
 
-                            @Override
-                            public void showLog(String log) {
-                                super.showLog(log);
-                            }
+Use `.fromViewSource().fromView(view)` for dynamic content, or `.fromViewIDSource().fromViewID(activity, R.id.document)` for a View in your Activity. Multiple layouts/Views are accepted. Give detached layouts a fixed width; the [invoice example](sample/src/main/res/layout/document_invoice.xml) uses `595px`. View pixels describe the source; A4 PDF output uses `595 × 842` points.
 
-                            @Override
-                            public void onStartPDFGeneration() {
-                                /*When PDF generation begins to start*/
-                            }
+### Save to Downloads or another document provider
 
-                            @Override
-                            public void onFinishPDFGeneration() {
-                                /*When PDF generation is finished*/ 
-                            }
-			    
-                            @Override
-                            public void onSuccess(SuccessResponse response) {
-                                super.onSuccess(response);
-                            }
-                        });
-```	
+```java
+// In onCreate, once per Activity:
+XmlToPDFLifecycleObserver saver = new XmlToPDFLifecycleObserver(this);
+saver.setResultListener(listener); // Reattach on recreation.
+getLifecycle().addObserver(saver);
 
-### Multi-paged PDF creation:
-Users of the library, sometimes have doubts that how to create multi-paged PDF. Though I mentioned it above but I need to show it again for more clearance.
-You can insert multiple xml or views object even view id in the parameter of the following methods to create multi-paged pdf: 
+// Add before build(listener):
+// .savePDFSharedStorage(saver)
+```
 
+The user selects a destination. `result.getUri()` works for document providers; `result.getFile()` can be null. Cancel is reported through `onFailure` with `CancellationException`, then `onFinishPDFGeneration`. Do not request READ/WRITE_EXTERNAL_STORAGE for this flow. See [migration details](docs/migration.md).
 
-If you want create multi-paged pdf from xmls-
+## Jetpack Compose to PDF
 
-`.fromLayoutXML(R.layout.layout_1,R.layout.layout_2)`
+```kotlin
+val capture = rememberPdfCaptureState()
+val scope = rememberCoroutineScope()
 
- If you want create multi-paged pdf from view ids -
- 
-`.fromViewID(activity,R.id.viewId1,R.id.viewId2)`
+PdfCapture(capture) {
+    InvoiceCard() // Your composable, with an explicit print-friendly theme.
+}
+Button(onClick = {
+    scope.launch {
+        try {
+            capture.export(activity, "invoice", listener = listener)
+        } catch (error: Exception) {
+            // Capture must be attached and drawn; handle capture errors here.
+        }
+    }
+}) { Text("Export PDF") }
+```
 
- If you want create multi-paged pdf from views-
- 
-`.fromViewID(view1,view1)`
+Imports: `com.gkemon.pdf.compose.PdfCapture`, `rememberPdfCaptureState`. The [complete sample](sample/src/main/java/com/emon/exampleXMLtoPDF/ComposeDemoActivity.kt) handles coroutine cancellation and errors.
 
-### How to print an Invoice Or Report ? 
-Sometimes people gets stuck to print invoice or report via this library.So I wrote an example invoice/report printing fragment to visualise how to print an <b>Invoice</b> or <b>Report</b>. Here is [the link also with an important documentation](https://github.com/Gkemon/Android-XML-to-PDF-Generator/blob/master/sample/src/main/java/com/emon/exampleXMLtoPDF/demoInvoice/DemoInvoiceFragment.java) 
+**Compose capture is raster.** It captures the drawn area, not off-screen `LazyColumn` items, WebViews or a whole navigation stack. Wait for data and images to render. For a long document, build explicit printable sections instead of capturing a virtualized list.
 
+## Flutter PDF generation
 
-### How to deal with generated PDF? 
-With a method calling named `openPDFafterGeneration(true)`, the generated file will be automatically opened automatically.So you <b>DON'T NEED TO BE BOTHER FOR IT</b>. [FileProvider](https://developer.android.com/reference/androidx/core/content/FileProvider) is used to open file here. To get a good insight about it please see the [tutorial](https://vladsonkin.com/how-to-share-files-with-android-fileprovider/). The `android:authorities` name in the app is `${applicationId}.xmlToPdf.provider` which might be needed if you want to deal with generated file <b>CUSTOMLY</b>,not letting the app open the generated file. you will get the generated file path in `onSuccess(SuccessResponse response)` response.
+Use the [Flutter package quickstart](packages/layout_to_pdf/README.md) for Git installation. Two APIs cover different needs:
 
-### Troubleshoot
-* Try to avoid to provide `match_parent` and `wrap_content` height/width in XML. So it specifically. 
-* If any of your footer view is not placed the footer position then you need adjust it using `marginTop` and keep it in a `ScrollView`.For example this [issue](https://github.com/Gkemon/Android-XML-to-PDF-Generator/issues/16) is fixed by rearranging XML like [this](https://github.com/Gkemon/Android-XML-to-PDF-Generator/blob/master/sample/src/main/res/layout/layout_test_invoice.xml)
+```dart
+// Capture a painted widget:
+PdfCapture(captureKey: key, child: InvoiceCard());
+final export = await captureToPdf(key, pageFormat: PdfPageFormat.a4);
 
-So if you find any trouble,then you are also welcomed again to knock me.Thank you so much. 
-		
+// Or build a text report with flowing paragraphs:
+final report = await buildReportPdf(
+  title: 'Project report',
+  sections: [ReportSection('Delivery', ['Design approved.', 'Export verified.'])],
+);
+```
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#templates)
+Both return PDF bytes and page count. The [example app](packages/layout_to_pdf/example) uses `printing` for PDF preview, printing and sharing. The portable package targets Flutter's Android, iOS, web, macOS, Windows and Linux runtimes; actual test coverage is listed separately.
+
+## SwiftUI to PDF
+
+Add this repository through Xcode's **Add Package Dependencies** and select the `LayoutToPDF` product. Requires **iOS 16+ or macOS 13+**.
+
+```swift
+import LayoutToPDF
+
+// Main actor, after your document data has loaded:
+let export = try LayoutPDF.render(InvoiceView(), options: .a4)
+try export.write(to: destinationURL)
+```
+
+See the [Apple quickstart](apple/README.md) and [iPhone sample](apple/Example). The native package provides PDF data and atomic writing; your app owns the save destination and sharing UI.
+
+## See the output
+
+Real device captures from the sample apps. The hero illustration is generated artwork; it is not a screenshot.
 
 <p>
-  <a href="https://www.linkedin.com/in/gk-mohammad-emon-0301b7104" rel="nofollow noreferrer">
-    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn
-  </a> &nbsp; 
-  <a href="emon.info2013@gmail.com">
-   <img width="20" src="https://user-images.githubusercontent.com/5141132/50740364-7ea80880-1217-11e9-8faf-2348e31beedd.png" alt="inbox"> Inbox
-  </a>
+  <img src="docs/images/android-studio.png" alt="Teamz Lab Android sample with XML and Compose export options on Pixel 8a" width="30%" />
+  <img src="docs/images/swiftui-iphone.png" alt="SwiftUI invoice generated and previewed on a real iPhone" width="30%" />
 </p>
 
-#### Logo credit: [kirillmazin](https://www.behance.net/kirillmazin)
+[Test commands and results](docs/verification.md)
 
-## ➤ License
+## Limits to know before integrating
 
-The source code is licensed under the [Apache License 2.0](https://github.com/Gkemon/XML-to-PDF-generator/blob/master/LICENSE). 
+- Continuous page slicing can cut through a line or table row. Use explicit page Views or Flutter's document/report path when semantic page breaks matter.
+- Pixel capture is not selectable text. Android and SwiftUI rendering may preserve text/vectors, but custom drawing, effects and bitmaps vary.
+- Virtualized/off-screen content is not automatically rendered. Supply loaded, non-lazy document content.
+- A light page background does not recolor white text from a dark UI. Use a dedicated print theme.
+- Android pending saves survive Activity recreation, not process death. Restart an unfinished export after the process is killed.
+- No PDF editing, signing, encryption, PDF/A or accessibility-tagged PDF guarantees. This is an export toolkit, not a complete PDF engine.
+- No runtime network calls or analytics are added by these adapters. Your host app, remote images and preview/printing dependencies have their own behavior.
 
+## Contribute or report a problem
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
+Open a [reproducible issue](https://github.com/Teamz-Lab-LTD/Android-XML-to-PDF-Generator/issues/new/choose) with the export path, versions, a minimal layout and expected output. Remove personal/client data from attachments. See [CONTRIBUTING.md](CONTRIBUTING.md) and [maintenance policy](docs/maintenance.md).
 
+## Built by Teamz Lab
 
-## ➤ App using it 
-* [Codeddit Programmer Community](
-https://play.google.com/store/apps/details?id=com.codedditapp.codeddit)
-* [হাজিরা খাতা - Attendance sheet - HaziraKhata](
-https://play.google.com/store/apps/details?id=com.Teachers.HaziraKhataByGk)
-* [Trust Axiata Pay](
-https://play.google.com/store/apps/details?id=com.tad.bdkepler&hl=en&gl=US)
-* [Prideboard](https://play.google.com/store/apps/details?id=com.pridesys.prideboard)
+We build Android, iOS and Flutter apps, including document export, reporting and workflow integrations. If your team needs a custom print layout, an existing app fixed, or a mobile product built, [talk to Teamz Lab](https://teamzlab.com/?utm_source=github&utm_medium=opensource&utm_campaign=layout_to_pdf&utm_content=readme_services#contact).
 
-* [Treatbook - Your Health Coach and Medical Tracker](
-https://play.google.com/store/apps/details?id=com.newlit.treatbook&hl=en&gl=US)
+The library stays open source. Hiring us is optional, and your documents do not require a Teamz Lab watermark.
 
-* [Mobflow](
-https://play.google.com/store/apps/details?id=com.brazzo.mobflow)
-
-* [Front Benchers](https://play.google.com/store/apps/details?id=com.mr_17.front_benchers)
+Apache-2.0 · Original Android library by **GK Emon** · [License](LICENSE)

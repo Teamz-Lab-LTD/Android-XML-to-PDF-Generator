@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path name="pdf_external" path="." />
+    <files-path name="pdf_internal" path="." />
+    <cache-path name="pdf_cache" path="xml-to-pdf/" />
+</paths>

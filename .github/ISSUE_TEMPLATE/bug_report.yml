@@ -1,0 +1,31 @@
+name: PDF export bug
+description: Report a reproducible export, storage, rendering or pagination problem.
+body:
+  - type: dropdown
+    id: renderer
+    attributes:
+      label: Export path
+      options: [Android XML / View, Jetpack Compose, Flutter widget capture, Flutter text report, SwiftUI]
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Versions and device
+      description: Commit or release, OS/API, framework version, device or simulator.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the smallest layout/code that fails and exact steps. Remove personal or client data.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual output
+      description: Page count, dimensions, logs and a redacted PDF or screenshot if useful.
+    validations:
+      required: true

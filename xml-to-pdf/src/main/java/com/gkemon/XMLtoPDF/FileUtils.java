@@ -34,10 +34,10 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
-import androidx.loader.content.CursorLoader;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.OutputStream;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -61,8 +61,8 @@ public class FileUtils {
      */
     public static Comparator<File> sComparator = (f1, f2) -> {
         // Sort alphabetically by lower case, which is much cleaner
-        return f1.getName().toLowerCase().compareTo(
-                f2.getName().toLowerCase());
+        return f1.getName().toLowerCase(java.util.Locale.ROOT).compareTo(
+                f2.getName().toLowerCase(java.util.Locale.ROOT));
     };
     /**
      * File (not directories) filter.
@@ -445,7 +445,7 @@ public class FileUtils {
      */
     public static Intent getViewIntent(Context context, File file) {
         //Uri uri = Uri.fromFile(file);
-        Uri uri = FileProvider.getUriForFile(context, AUTHORITY, file);
+        Uri uri = FileProvider.getUriForFile(context, context.getPackageName() + ".xmlToPdf.provider", file);
         Intent intent = new Intent(Intent.ACTION_VIEW);
         String url = file.toString();
         if (url.contains(".doc") || url.contains(".docx")) {
@@ -558,17 +558,13 @@ public class FileUtils {
 
 
     private static void saveFileFromUri(Context context, Uri uri, String destinationPath) throws IOException {
-        InputStream is = null;
-        BufferedOutputStream bos = null;
-        is = context.getContentResolver().openInputStream(uri);
-        bos = new BufferedOutputStream(new FileOutputStream(destinationPath, false));
-        byte[] buf = new byte[1024];
-        is.read(buf);
-        do {
-            bos.write(buf);
-        } while (is.read(buf) != -1);
-        is.close();
-        bos.close();
+        try (InputStream in = context.getContentResolver().openInputStream(uri);
+             OutputStream out = new FileOutputStream(destinationPath)) {
+            if (in == null) throw new IOException("Cannot open document");
+            byte[] buffer = new byte[8192];
+            int count;
+            while ((count = in.read(buffer)) != -1) out.write(buffer, 0, count);
+        }
     }
 
     public static byte[] readBytesFromFile(String filePath) {
@@ -643,38 +639,14 @@ public class FileUtils {
     }
 
     private static String getGoogleDriveFilePath(Uri uri, Context context) {
-        Uri returnUri = uri;
-        Cursor returnCursor = context.getContentResolver().query(returnUri, null, null, null, null);
-        /*
-         * Get the column indexes of the data in the Cursor,
-         *     * move to the first row in the Cursor, get the data,
-         *     * and display it.
-         * */
-        int nameIndex = returnCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-        int sizeIndex = returnCursor.getColumnIndex(OpenableColumns.SIZE);
-        returnCursor.moveToFirst();
-
-        String name = (returnCursor.getString(nameIndex));
-        String size = (Long.toString(returnCursor.getLong(sizeIndex)));
-        File file = new File(context.getCacheDir(), name);
         try {
-            InputStream inputStream = context.getContentResolver().openInputStream(uri);
-            FileOutputStream outputStream = new FileOutputStream(file);
-            int read = 0;
-            int maxBufferSize = 1 * 1024 * 1024;
-            int bytesAvailable = inputStream.available();
-            int bufferSize = Math.min(bytesAvailable, maxBufferSize);
-
-            final byte[] buffers = new byte[bufferSize];
-            while ((read = inputStream.read(buffers)) != -1) {
-                outputStream.write(buffers, 0, read);
-            }
-            inputStream.close();
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            File file = File.createTempFile("document-", ".bin", context.getCacheDir());
+            saveFileFromUri(context, uri, file.getPath());
+            return file.getPath();
+        } catch (IOException e) {
+            Log.w(TAG, "Could not cache document", e);
+            return null;
         }
-        return file.getPath();
     }
 
     public static String getRealPath(Context context, Uri fileUri) {

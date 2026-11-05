@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.compose'
+    id 'maven-publish'
+}
+android {
+    namespace 'com.gkemon.pdf.compose'
+    compileSdk 36
+    defaultConfig { minSdk 21 }
+    buildFeatures { compose true }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions { jvmTarget = '1.8' }
+    publishing { singleVariant('release') { withSourcesJar() } }
+}
+dependencies {
+    api project(':xml-to-pdf')
+    api 'androidx.compose.ui:ui:1.7.8'
+    implementation 'androidx.compose.foundation:foundation-layout:1.7.8'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.Teamz-Lab-LTD.Android-XML-to-PDF-Generator'
+                artifactId = 'compose-to-pdf'
+                version = '3.0.0'
+            }
+        }
+    }
+}
